@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Voidlure · Full Embed</title>
+  <style>
+    /* Global reset – full screen, no scroll */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0b0e14;
+    }
+
+    iframe {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      background: #131821;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <!-- Full embed using your Cloudflare Worker proxy -->
+  <iframe
+    src="https://refresher.voidlure.workers.dev/proxy?url=https://bloxtools.fr/refresher/Voidlure"
+    title="Voidlure · Cookie Refresher"
+    loading="eager"
+    importance="high"
+    allow="accelerometer; clipboard-read; clipboard-write; encrypted-media; geolocation; gyroscope; picture-in-picture; fullscreen"
+    allowfullscreen="true"
+    referrerpolicy="no-referrer"
+    sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-storage-access-by-user-activation"
+  ></iframe>
+
+  <script>
+    (function() {
+      const iframe = document.querySelector('iframe');
+
+      function setFullHeight() {
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+      }
+
+      window.addEventListener('load', function() {
+        setFullHeight();
+        setTimeout(setFullHeight, 150);
+      });
+
+      window.addEventListener('resize', setFullHeight);
+      window.addEventListener('orientationchange', function() {
+        setTimeout(setFullHeight, 300);
+      });
+
+      console.log('🔒 Full embed: refresher.voidlure.workers.dev/proxy?url=https://bloxtools.fr/refresher/Voidlure');
+    })();
+  </script>
+</body>
+</html>
